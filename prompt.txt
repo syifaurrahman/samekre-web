@@ -1,0 +1,538 @@
+# PROJECT: NATURAL ACEH 
+
+## 1. ROLE & OBJECTIVE
+
+Act as a Senior Frontend Engineer, UI/UX Designer, and Web Architect.
+
+Build a complete, modern, professional, responsive website for **Natural Aceh**, using the existing React + Vite project.
+
+Official reference website:
+https://naturalaceh.org/
+
+Your task is to study the reference website, understand its identity, content, navigation, programs, and organizational structure, then rebuild it with a significantly improved user interface and user experience.
+
+This is a website reconstruction and modernization project, NOT a completely different website.
+
+Preserve the original organization's identity, purpose, important information, and core content while improving the overall visual quality, usability, accessibility, and code architecture.
+
+## 2. DESIGN DIRECTION
+
+Design style: **Modern Minimalism / Nature-Inspired Editorial / Professional Institutional Website.**
+
+The website should look elegant, clean, modern, trustworthy, and professional.
+
+### Visual Guidelines
+
+- Minimalist and clean layout.
+- Generous whitespace and balanced spacing.
+- Strong visual hierarchy.
+- Consistent typography and color system.
+- Elegant image presentation.
+- Well-organized content sections.
+- Subtle transitions and micro-interactions.
+- Professional editorial-style layouts.
+- Responsive design across all screen sizes.
+
+### Color Palette
+
+Use a nature-inspired color palette:
+
+- Primary: Deep Forest Green (#173F35)
+- Secondary: Natural Green (#527A62)
+- Accent: Sage Green (#A8B9A0)
+- Background: Warm Off-White (#F8F8F4)
+- Surface: White (#FFFFFF)
+- Text Primary: Charcoal (#242A26)
+- Text Secondary: Muted Gray (#737B75)
+
+Use colors consistently. Avoid excessive gradients, oversaturated colors, and unnecessary decorative elements.
+
+### Typography
+
+Use modern, highly readable typography.
+
+Suggested fonts:
+- Inter
+- Manrope
+- Plus Jakarta Sans
+
+Use appropriate font weights, line heights, and heading sizes.
+
+Headings should feel sophisticated and distinctive without being oversized.
+
+## 3. ANIMATION & INTERACTION
+
+Implement subtle, smooth animations throughout the website.
+
+Use:
+- Smooth hover transitions.
+- Gentle fade-in animations when sections enter the viewport.
+- Subtle image zoom on hover.
+- Smooth dropdown navigation.
+- Elegant button hover effects.
+- Small movement transitions for interactive elements.
+- Smooth mobile navigation transitions.
+
+Animation requirements:
+- Duration approximately 200–400ms.
+- Use natural easing curves.
+- Avoid excessive motion.
+- No distracting bouncing effects.
+- No unnecessary parallax.
+- No excessive animated backgrounds.
+- Respect prefers-reduced-motion.
+
+The overall experience should feel premium, lightweight, and natural.
+
+## 4. WEBSITE STRUCTURE
+
+Create a complete website with the following main sections.
+
+### A. Header & Navigation
+
+Create a clean, professional navigation bar.
+
+Include:
+- Natural Aceh logo.
+- Main navigation.
+- Dropdown menus for grouped program categories.
+- Search icon.
+- Responsive mobile navigation.
+
+Navigation structure should follow the original website's information architecture:
+
+1. Home
+2. WPS Program
+   - Coastal Women
+   - Health and Environmental Equity
+   - Economic Empowerment of Women
+   - Women Empowerment Initiative
+3. Livelihood Program
+   - Akademi
+   - Mangrove Restoration
+   - Our Activities
+   - Nature as Infrastructure
+   - Achievements
+   - News
+   - Video
+4. SDGs Program
+   - Sumatra SIG
+   - Ecolabels / Sustainable Public Procurement
+   - Microclimate Risk Insurance
+   - Coastal Ecosystem Restoration
+   - Climate Change Adaptation
+   - Disaster Risk Reduction Education
+   - Green Health Care Solutions
+   - Community Empowerment
+5. Conservation
+   - Anoa
+   - Land Restoration
+6. Publications
+   - Books
+   - Articles
+   - Documents
+7. About Us
+8. Contact
+
+Do not overcrowd the navigation. Use organized mega menus or dropdown menus where appropriate.
+
+### B. Hero Section
+
+Create an impactful hero section that immediately communicates Natural Aceh's identity.
+
+Main headline:
+
+"Humanity and Nature are One"
+
+Supporting text:
+
+"Building sustainable communities through research, innovation, environmental conservation, and collaborative action."
+
+Include:
+- High-quality natural landscape photography.
+- Environmental and community-related imagery.
+- Clear call-to-action buttons.
+- Discover Our Programs.
+- Learn About Us.
+
+The hero should feel spacious, editorial, and premium.
+
+Avoid excessive text overlays and unnecessary decorative elements.
+
+### C. About Natural Aceh
+
+Introduce Natural Aceh as a research, training, and philanthropy institution contributing to sustainable development initiatives in Aceh and Indonesia.
+
+Include:
+- Organization overview.
+- Vision and mission.
+- Main areas of focus.
+- Community collaboration.
+- Research and development activities.
+
+Use an elegant split layout with an image on one side and text on the other.
+
+### D. Our Programs
+
+Create a modern program showcase using a clean card-based layout.
+
+Main categories:
+
+1. Women Empowerment
+2. Livelihood Development
+3. Sustainable Development Goals (SDGs)
+4. Environmental Conservation
+5. Research & Training
+6. Community Development
+
+Each card should have:
+- Relevant image.
+- Program title.
+- Short description.
+- Explore More link.
+
+Cards should have consistent dimensions and subtle hover interactions.
+
+### E. Featured Projects & Activities
+
+Showcase Natural Aceh's projects and activities.
+
+Include relevant content such as:
+- Mangrove restoration.
+- Coastal ecosystem conservation.
+- Women's economic empowerment.
+- Sustainable livelihoods.
+- Climate adaptation.
+- Community development.
+
+Use a modern editorial grid or asymmetric image layout.
+
+Make project details accessible through dedicated pages.
+
+### F. Latest News & Articles
+
+Create a professional news and article section.
+
+Use the original website as the primary content reference.
+
+Display:
+- Featured news article.
+- Latest articles.
+- Publication date.
+- Article thumbnail.
+- Category.
+- Short excerpt.
+- Read More link.
+
+Provide a dedicated article detail page with:
+- Article title.
+- Publication date.
+- Featured image.
+- Article content.
+- Related articles.
+- Share functionality.
+
+Use realistic information from the source website. Never invent organizational announcements or achievements.
+
+### G. Achievements & Publications
+
+Create sections for:
+- Organizational achievements.
+- Books and publications.
+- Research documents.
+- Educational resources.
+- Reports and other downloadable materials.
+
+Use clean document cards and categorized listings.
+
+Where actual downloadable files are available, preserve their original links. Do not generate fake download buttons.
+
+### H. Our Units
+
+Showcase organizational units, including:
+
+- Natural Research
+- Natural Training
+- Natural Publishing
+- Natural Akademi
+- Natural Food
+- Bungkesmas
+- UMMA
+- EDUNESIA
+- Other official organizational units.
+
+Use a neat grid with relevant descriptions and links when available.
+
+### I. Contact Section
+
+Create a clean contact section containing the verified organizational information from the official website.
+
+Include:
+- Office address.
+- Phone numbers.
+- Business hours.
+- Email and partnership contact information where available.
+- Social media links.
+- Contact form.
+
+Use a visually balanced layout.
+
+### J. Footer
+
+Create a professional footer containing:
+- Natural Aceh branding.
+- Organization description.
+- Quick links.
+- Program links.
+- Contact information.
+- Social media.
+- Copyright information.
+
+Keep it minimal and well-organized.
+
+## 5. IMAGE & VISUAL ASSETS
+
+Use high-quality, relevant photography.
+
+Prioritize imagery related to:
+- Aceh's natural landscapes.
+- Mangrove forests.
+- Coastal communities.
+- Women empowerment activities.
+- Environmental restoration.
+- Community education.
+- Sustainable agriculture and fisheries.
+
+Image requirements:
+- Use realistic photography.
+- Prefer authentic documentation of Natural Aceh's activities.
+- Prioritize official website images when accessible and reusable.
+- Use suitable royalty-free images when original assets are unavailable.
+- Maintain consistent image aspect ratios.
+- Use object-fit: cover appropriately.
+- Apply subtle image transitions.
+
+Avoid:
+- Generic corporate stock photography.
+- Unrelated images.
+- Cartoon illustrations.
+- Excessive AI-generated visuals.
+- Low-quality images.
+- Broken image links.
+
+Organize images in a centralized assets directory.
+
+## 6. TECHNICAL REQUIREMENTS
+
+Technology stack:
+
+- React
+- Vite
+- JavaScript
+- React Router DOM
+- CSS3
+- Lucide React for icons
+
+Use the existing project directory. Do not create another project or replace the Vite configuration unnecessarily.
+
+Suggested architecture:
+
+src/
+├── assets/
+│   ├── images/
+│   ├── icons/
+│   └── logo/
+├── components/
+│   ├── Header.jsx
+│   ├── Footer.jsx
+│   ├── Navigation.jsx
+│   ├── Hero.jsx
+│   ├── SectionTitle.jsx
+│   ├── ProgramCard.jsx
+│   ├── ProjectCard.jsx
+│   ├── ArticleCard.jsx
+│   └── ...
+├── pages/
+│   ├── Home.jsx
+│   ├── About.jsx
+│   ├── Programs.jsx
+│   ├── Projects.jsx
+│   ├── Activities.jsx
+│   ├── News.jsx
+│   ├── ArticleDetail.jsx
+│   ├── Publications.jsx
+│   ├── Achievements.jsx
+│   ├── Conservation.jsx
+│   └── Contact.jsx
+├── data/
+│   ├── navigation.js
+│   ├── programs.js
+│   ├── projects.js
+│   └── articles.js
+├── hooks/
+├── styles/
+│   ├── global.css
+│   ├── variables.css
+│   └── animations.css
+├── App.jsx
+└── main.jsx
+
+You may adjust the architecture when necessary, but maintain separation of concerns and reusable components.
+
+## 7. RESPONSIVE DESIGN
+
+The website must work properly on:
+
+- Desktop (1440px and above).
+- Laptop (1024px–1366px).
+- Tablet (768px–1023px).
+- Mobile (320px–767px).
+
+Requirements:
+- Responsive navigation.
+- Responsive typography.
+- Flexible grid systems.
+- Proper image scaling.
+- No horizontal overflow.
+- Appropriate spacing on mobile.
+- Touch-friendly interactive elements.
+- Consistent visual hierarchy on every screen size.
+
+Mobile design should be intentionally designed, not simply a compressed desktop layout.
+
+## 8. FUNCTIONAL REQUIREMENTS
+
+All visible interactive elements must work.
+
+Implement:
+- Functional navigation.
+- Dropdown menus.
+- Mobile navigation menu.
+- Search interface.
+- Article and project navigation.
+- Category filtering where appropriate.
+- Contact form validation.
+- Social media links.
+- Back-to-top functionality.
+- Appropriate loading and empty states.
+
+Use React Router for page navigation.
+
+If an external service or backend is unavailable, implement a sensible frontend solution and clearly indicate where backend integration is required.
+
+Do not create fake successful form submissions.
+
+## 9. CODE QUALITY & BEST PRACTICES
+
+Follow these principles:
+
+- Write clean and maintainable React code.
+- Use reusable components.
+- Avoid unnecessary component complexity.
+- Use semantic HTML.
+- Follow accessibility best practices.
+- Use descriptive variable and component names.
+- Avoid duplicate CSS.
+- Avoid excessive dependencies.
+- Optimize image loading.
+- Use lazy loading where appropriate.
+- Provide proper alt attributes.
+- Avoid console errors and React warnings.
+- Ensure all routes work after refreshing the browser.
+
+Do not use placeholder lorem ipsum content.
+
+Use meaningful content based on the original Natural Aceh website.
+
+## 10. SEO & PERFORMANCE
+
+Implement basic SEO:
+- Page-specific document titles.
+- Meta descriptions.
+- Semantic heading hierarchy.
+- Open Graph metadata.
+- Descriptive image alt text.
+- Clean URL structure.
+
+Optimize performance:
+- Lazy-loaded images.
+- Minimal unnecessary JavaScript.
+- Optimized assets.
+- Lightweight animations.
+- Avoid unnecessary re-renders.
+
+## 11. STRICT DESIGN RULES
+
+The final website must NOT look like:
+- A generic AI-generated website.
+- A standard Bootstrap template.
+- An overcrowded WordPress theme.
+- A dashboard disguised as a landing page.
+- A website with excessive gradients and glassmorphism.
+- A website full of unnecessary floating elements.
+- A website with excessive animation.
+
+Avoid overdesign.
+
+Prioritize excellent typography, whitespace, grid alignment, photography, and consistency.
+
+Every section should have a clear purpose.
+
+## 12. EXECUTION WORKFLOW
+
+Work in the following order:
+
+**Phase 1 – Reference Analysis**
+- Inspect the official Natural Aceh website.
+- Study its homepage, navigation, program pages, articles, publications, and contact information.
+- Identify its existing visual identity and content hierarchy.
+- Identify unavailable or broken pages.
+- Do not reproduce irrelevant external links, injected content, or suspicious scripts.
+
+**Phase 2 – Planning**
+- Establish design tokens.
+- Define typography and color systems.
+- Create reusable components.
+- Define page routes and content structure.
+
+**Phase 3 – Development**
+- Build the shared layout.
+- Implement the header and navigation.
+- Build the homepage.
+- Implement internal pages.
+- Add responsive styling.
+- Add subtle animations and interactions.
+
+**Phase 4 – Quality Assurance**
+- Run the development server.
+- Test every page.
+- Test navigation and interactive components.
+- Inspect mobile, tablet, and desktop layouts.
+- Fix broken images.
+- Fix layout issues and console errors.
+- Verify that the project builds successfully.
+
+**Phase 5 – Final Polish**
+- Review the overall visual consistency.
+- Improve spacing and typography.
+- Refine hover states and transitions.
+- Remove unused code and unnecessary dependencies.
+- Ensure the finished website feels like a professionally designed institutional website.
+
+## 13. IMPORTANT FINAL INSTRUCTIONS
+
+Do not stop after creating the homepage.
+
+Build a cohesive multi-page website with a reusable component architecture.
+
+Do not simply provide suggestions, mockups, or explanations. Actually implement the website in the existing React + Vite project.
+
+Make reasonable technical and design decisions independently.
+
+Do not ask unnecessary questions.
+
+When the reference website contains inaccessible pages, preserve the relevant navigation structure where useful, but do not fabricate the missing content. Use a graceful fallback or clearly marked placeholder until verified content is available.
+
+The final result should be a polished, professional, modern, minimalist, responsive Natural Aceh website that maintains its original organizational identity while significantly improving its digital presence.
+
+**Design priority: Minimalism, readability, functionality, responsiveness, consistency, and subtle elegance.**

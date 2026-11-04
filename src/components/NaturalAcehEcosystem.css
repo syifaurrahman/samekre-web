@@ -1,0 +1,337 @@
+/* ==========================================================================
+   Natural Aceh Interactive Digital Ecosystem Animation
+   Theme: Nature, Community, Science, & Sustainable Tech
+   ========================================================================== */
+
+.natural-ecosystem {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #0b231c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.natural-ecosystem__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Vector SVG Canvas */
+.natural-ecosystem__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+/* Glassmorphism Overlays Container */
+.natural-ecosystem__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Tagline Ribbon (Humanity & Nature Are One)
+   ========================================================================== */
+.ecosystem-tagline {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(15, 43, 36, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 12px rgba(16, 185, 129, 0.15);
+}
+
+.ecosystem-tagline__pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #34d399;
+  box-shadow: 0 0 8px #34d399;
+  animation: ecoPulse 2s ease-in-out infinite;
+}
+
+.ecosystem-tagline__text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ecfdf5;
+  text-transform: uppercase;
+}
+
+.ecosystem-tagline__icon {
+  color: #fbbf24;
+}
+
+@keyframes ecoPulse {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Interactive Glassmorphism Information Cards
+   ========================================================================== */
+.ecosystem-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(10, 35, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.2);
+  max-width: 215px;
+  pointer-events: auto;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ecosystem-card:hover {
+  border-color: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 15px rgba(52, 211, 153, 0.2);
+}
+
+/* Position: Card 1 (Top Right) */
+.ecosystem-card--top-right {
+  top: 56px;
+  right: 16px;
+}
+
+/* Position: Card 2 (Mid Left) */
+.ecosystem-card--mid-left {
+  top: 48%;
+  left: 16px;
+  transform: translateY(-50%);
+}
+
+/* Position: Card 3 (Bottom Left - avoids badge on bottom right) */
+.ecosystem-card--bottom-left {
+  bottom: 22px;
+  left: 16px;
+}
+
+/* Icon Badges */
+.ecosystem-card__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+
+.ecosystem-card__icon--green {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.ecosystem-card__icon--cyan {
+  background: rgba(14, 165, 233, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.ecosystem-card__icon--amber {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+/* Card Body Typography */
+.ecosystem-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.ecosystem-card__label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #94a3b8;
+  letter-spacing: 0.02em;
+}
+
+.ecosystem-card__value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.25;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 768px) {
+  .ecosystem-tagline {
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    gap: 5px;
+  }
+
+  .ecosystem-tagline__text {
+    font-size: 0.62rem;
+  }
+
+  .ecosystem-card {
+    padding: 7px 10px;
+    gap: 7px;
+    border-radius: 10px;
+  }
+
+  .ecosystem-card__icon-wrapper {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+  }
+
+  .ecosystem-card__icon-wrapper svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .ecosystem-card__label {
+    font-size: 0.6rem;
+  }
+
+  .ecosystem-card__value {
+    font-size: 0.72rem;
+  }
+
+  .ecosystem-card--top-right {
+    top: 46px;
+    right: 12px;
+    max-width: 175px;
+  }
+
+  .ecosystem-card--mid-left {
+    top: 48%;
+    left: 12px;
+    transform: translateY(-50%);
+    max-width: 165px;
+  }
+
+  .ecosystem-card--bottom-left {
+    bottom: 14px;
+    left: 12px;
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ecosystem-tagline {
+    top: 10px;
+    left: 10px;
+    padding: 3px 8px;
+    gap: 5px;
+  }
+
+  .ecosystem-tagline__text {
+    font-size: 0.58rem;
+    letter-spacing: 0.02em;
+  }
+
+  .ecosystem-tagline__pulse {
+    width: 6px;
+    height: 6px;
+  }
+
+  .ecosystem-card {
+    padding: 5px 8px;
+    gap: 6px;
+    border-radius: 9px;
+  }
+
+  .ecosystem-card__icon-wrapper {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+  }
+
+  .ecosystem-card__icon-wrapper svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .ecosystem-card__label {
+    font-size: 0.55rem;
+  }
+
+  .ecosystem-card__value {
+    font-size: 0.66rem;
+    line-height: 1.2;
+  }
+
+  .ecosystem-card--top-right {
+    top: 42px;
+    right: 10px;
+    max-width: 155px;
+  }
+
+  .ecosystem-card--mid-left {
+    top: 48%;
+    left: 10px;
+    transform: translateY(-50%);
+    max-width: 148px;
+  }
+
+  .ecosystem-card--bottom-left {
+    bottom: 12px;
+    left: 10px;
+    max-width: 145px;
+  }
+}
+
+@media (max-width: 360px) {
+  .ecosystem-card--top-right {
+    max-width: 140px;
+    top: 38px;
+  }
+
+  .ecosystem-card--mid-left {
+    max-width: 135px;
+  }
+
+  .ecosystem-card--bottom-left {
+    max-width: 135px;
+    bottom: 10px;
+  }
+}
+
+/* Accessibility: Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .ecosystem-tagline__pulse {
+    animation: none;
+  }
+  .ecosystem-card {
+    transition: none;
+  }
+}

@@ -1,0 +1,165 @@
+# PROMPT IMPLEMENTASI ANIMASI ABOUT US NATURAL ACEH
+
+Anda bertindak sebagai **Senior Frontend Developer dan UI/UX Engineer**. Tugas Anda adalah mengimplementasikan animasi interaktif pada bagian **About Us** website Natural Aceh menggunakan React, CSS, dan Framer Motion.
+
+Website referensi: https://naturalaceh.org/
+
+## 1. Tujuan Utama
+
+Saya ingin mengganti gambar statis pada kolom kiri bagian About Us dengan animasi visual bertema **Interactive Digital Ecosystem**.
+
+Animasi harus menggambarkan hubungan antara alam, masyarakat, riset, teknologi, dan pembangunan berkelanjutan di Aceh. Desain harus memiliki identitas visual yang selaras dengan website Natural Aceh.
+
+Jangan membuat tampilan seperti halaman website, dashboard, atau mockup browser. Buat visual ilustratif yang terasa seperti sebuah ekosistem digital interaktif.
+
+## 2. Konsep Visual
+
+Gunakan konsep **Interactive Digital Ecosystem** dengan elemen berikut:
+
+- Ilustrasi pohon mangrove sebagai representasi pelestarian lingkungan Aceh.
+- Akar mangrove dan permukaan air dengan animasi gerakan yang halus.
+- Matahari, awan, dan elemen alam sebagai latar pendukung.
+- Siluet atau ilustrasi manusia yang merepresentasikan partisipasi masyarakat.
+- Garis koneksi digital dan titik-titik bercahaya yang menghubungkan berbagai elemen.
+- Elemen data atau riset yang melambangkan penelitian berbasis bukti.
+- Kartu informasi kecil yang melayang, misalnya:
+  - Mangrove Restoration
+  - Community Empowerment
+  - Research & Data
+- Tulisan identitas visual seperti **"Humanity & Nature Are One"**.
+
+Seluruh elemen harus menyatu menjadi satu komposisi visual, bukan kumpulan komponen yang terlihat terpisah.
+
+## 3. Identitas Desain
+
+Gunakan karakter desain berikut:
+
+- Warna utama hijau tua, hijau alam, dan hijau muda.
+- Warna pendukung putih, krem, dan sedikit aksen biru untuk elemen air.
+- Tampilan modern, bersih, elegan, dan profesional.
+- Nuansa visual ramah lingkungan dan teknologi masa depan.
+- Gunakan gradasi warna secara halus.
+- Berikan efek glow pada elemen digital, tetapi jangan berlebihan.
+- Pastikan visual tidak terlalu ramai.
+- Gunakan sudut membulat dan bayangan lembut pada kartu informasi.
+
+Sesuaikan warna dan gaya dengan identitas website Natural Aceh yang sudah ada. Prioritaskan konsistensi dengan desain website saat ini daripada membuat gaya visual yang benar-benar berbeda.
+
+## 4. Ketentuan Animasi
+
+Animasi harus berjalan secara **continuous loop**, sehingga visual terus bergerak secara halus tanpa perlu diklik.
+
+Terapkan animasi berikut:
+
+1. Matahari bergerak atau berdenyut secara perlahan.
+2. Awan bergerak perlahan di latar belakang.
+3. Daun mangrove bergoyang secara natural.
+4. Air bergerak dengan animasi gelombang.
+5. Akar dan bagian pohon memiliki efek gerakan yang sangat halus apabila memungkinkan.
+6. Garis koneksi digital menampilkan efek aliran cahaya.
+7. Titik-titik digital bergerak mengikuti jalur koneksi.
+8. Kartu informasi melayang naik turun dengan gerakan ringan.
+9. Elemen tertentu memiliki efek opacity atau scale agar visual terasa hidup.
+
+Gunakan Framer Motion untuk mengatur animasi. Hindari gerakan yang terlalu cepat, berlebihan, atau mengganggu kenyamanan pengunjung.
+
+Pastikan animasi memiliki pola gerakan yang natural dan berulang tanpa jeda visual yang terasa patah.
+
+## 5. Ketentuan Teknis
+
+- Gunakan React sebagai framework utama.
+- Gunakan CSS untuk styling.
+- Gunakan Framer Motion untuk animasi.
+- Apabila Framer Motion belum terpasang, lakukan instalasi menggunakan package manager yang sesuai dengan project.
+- Gunakan SVG atau CSS untuk membuat ilustrasi agar tampil tajam pada berbagai ukuran layar.
+- Jangan bergantung pada gambar eksternal yang berpotensi gagal dimuat.
+- Buat komponen terpisah agar kode mudah dikelola dan digunakan kembali.
+- Gunakan struktur kode yang rapi dan mudah dikembangkan.
+- Hindari penggunaan library tambahan yang tidak diperlukan.
+- Perhatikan performa rendering dan penggunaan animasi.
+- Terapkan dukungan `prefers-reduced-motion` agar pengguna yang mengurangi animasi tetap mendapatkan pengalaman yang nyaman.
+
+## 6. Integrasi ke Bagian About Us
+
+Temukan komponen dan file CSS yang mengatur bagian About Us pada project yang sedang dibuka.
+
+Ganti gambar statis di kolom kiri dengan komponen animasi Interactive Digital Ecosystem yang telah dibuat.
+
+Pertahankan kolom kanan yang sudah ada, termasuk:
+
+- Label "TENTANG KAMI".
+- Judul "Lembaga Pembangunan Berkelanjutan untuk Aceh".
+- Deskripsi Natural Aceh.
+- Informasi mengenai riset, pelatihan, pemberdayaan masyarakat, pelestarian lingkungan, dan Sustainable Development Goals (SDGs).
+- Nilai-nilai organisasi.
+- Tombol "Pelajari Lebih Lanjut".
+
+Jangan menghapus, mengganti, atau mengubah isi teks yang sudah ada tanpa alasan teknis yang kuat.
+
+Pastikan komposisi kedua kolom tetap seimbang. Animasi tidak boleh mendominasi seluruh bagian About Us atau membuat teks di kolom kanan sulit dibaca.
+
+## 7. Responsive Design
+
+Pastikan animasi tampil dengan baik pada:
+
+- Desktop.
+- Laptop.
+- Tablet.
+- Smartphone.
+
+Pada layar desktop, pertahankan layout dua kolom seperti desain About Us saat ini.
+
+Pada layar kecil, sesuaikan ukuran visual dan tata letaknya agar tidak terpotong atau menyebabkan horizontal scrolling.
+
+Pastikan seluruh elemen animasi tetap proporsional dan informasi penting masih terlihat.
+
+## 8. Aturan Saat Mengedit Project
+
+Sebelum melakukan perubahan:
+
+1. Periksa struktur folder dan file project.
+2. Identifikasi framework, konfigurasi, komponen About Us, dan CSS yang digunakan.
+3. Pelajari pola desain serta warna yang sudah diterapkan pada website.
+4. Tentukan lokasi komponen animasi yang paling sesuai dengan struktur project.
+
+Saat melakukan implementasi:
+
+1. Buat komponen animasi dengan nama `NaturalAcehEcosystem`.
+2. Pisahkan styling ke file CSS tersendiri.
+3. Integrasikan komponen tersebut langsung ke bagian About Us.
+4. Sesuaikan class, import path, dan struktur kode dengan project yang sebenarnya.
+5. Jangan membuat halaman About Us baru apabila halaman tersebut sudah tersedia.
+6. Jangan mengubah bagian website lain yang tidak berkaitan dengan pekerjaan ini.
+7. Pertahankan fungsi navigasi, tombol, dan komponen yang sudah berjalan.
+
+## 9. Pengujian dan Validasi
+
+Setelah implementasi selesai:
+
+- Jalankan project menggunakan perintah yang sesuai.
+- Periksa apakah komponen animasi berhasil ditampilkan.
+- Periksa apakah semua animasi berjalan secara continuous.
+- Periksa apakah tidak ada error pada console.
+- Jalankan build atau pemeriksaan kode yang tersedia.
+- Perbaiki error yang muncul akibat perubahan kode.
+- Periksa tampilan desktop dan mobile.
+- Pastikan tidak ada elemen yang bertabrakan, terpotong, atau menyebabkan layout rusak.
+
+Jangan hanya memberikan contoh kode atau instruksi. Lakukan perubahan langsung pada file project yang tersedia.
+
+## 10. Hasil Akhir yang Diharapkan
+
+Saya menginginkan bagian About Us Natural Aceh yang awalnya menggunakan gambar statis berubah menjadi sebuah **Interactive Digital Ecosystem** yang menggambarkan ekosistem pembangunan berkelanjutan.
+
+Hasil visual harus terlihat modern, profesional, hidup, dan memiliki identitas Natural Aceh.
+
+Animasi harus berjalan otomatis secara terus-menerus, tetapi tetap ringan dan nyaman dilihat.
+
+**Prioritas utama:**
+1. Visual harus sesuai dengan identitas Natural Aceh.
+2. Animasi terlihat hidup dan berjalan terus-menerus.
+3. Integrasi tidak merusak layout About Us yang sudah ada.
+4. Responsive pada semua ukuran layar.
+5. Kode bersih, terstruktur, dan dapat dijalankan.
+
+Kerjakan seluruh proses implementasi sampai selesai tanpa meminta konfirmasi untuk setiap perubahan kecil. Apabila terdapat perbedaan struktur project dengan asumsi di atas, sesuaikan implementasinya berdasarkan kondisi project yang sebenarnya.

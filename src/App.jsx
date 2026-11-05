@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -11,6 +11,8 @@ import ArticleDetail from './pages/ArticleDetail';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import ProgramDetailPage from './pages/ProgramDetailPage';
+import { articles } from './data/articles';
+import { pagesData } from './data/pagesData';
 
 // Scroll to top instantly on route change
 function ScrollToTop() {
@@ -19,6 +21,20 @@ function ScrollToTop() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [pathname]);
   return null;
+}
+
+// Fallback resolver for root slugs (WordPress legacy URLs like /project-blue-resilience or /coastal-women)
+function LegacyRouteFallback() {
+  const { slug } = useParams();
+  const isArticle = articles.some((a) => a.slug === slug);
+  if (isArticle) {
+    return <ArticleDetail />;
+  }
+  const isPage = Boolean(pagesData[slug]);
+  if (isPage) {
+    return <ProgramDetailPage />;
+  }
+  return <NotFound />;
 }
 
 export default function App() {
@@ -62,9 +78,14 @@ export default function App() {
           {/* News & Real Articles from naturalaceh.org */}
           <Route path="/news" element={<News />} />
           <Route path="/news/:slug" element={<ArticleDetail />} />
+          <Route path="/article/:slug" element={<ArticleDetail />} />
+          <Route path="/articles/:slug" element={<ArticleDetail />} />
 
           {/* Contact */}
           <Route path="/contact" element={<Contact />} />
+
+          {/* Root-level slug fallback for original WordPress URLs & direct links */}
+          <Route path="/:slug" element={<LegacyRouteFallback />} />
 
           {/* 404 Graceful Fallback */}
           <Route path="*" element={<NotFound />} />

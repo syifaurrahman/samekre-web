@@ -7,6 +7,7 @@ import aksiRestorasiImg from '../assets/aksi_restorasi.png';
 import telkomImg from '../assets/telkom.png';
 import treImg from '../assets/tre.jpeg';
 import panglimaLaotImg from '../assets/panglima_laot.png';
+import elanggImg from '../assets/elangg.png';
 
 // Real articles crawled directly from naturalaceh.org
 export const articles = [
@@ -191,7 +192,7 @@ export const articles = [
       "The requested URL was not found on this server.",
       "Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request."
     ],
-    "image": anoaImg,
+    "image": elanggImg,
     "category": "Konservasi",
     "date": "2025-01-09",
     "author": "Tim Riset & Komunikasi Natural Aceh",

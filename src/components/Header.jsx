@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Search, Menu, X, ChevronDown } from 'lucide-react';
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Search, Menu, X, ChevronDown, Compass, Layers, FileText, ArrowRight } from 'lucide-react';
 import { navItems } from '../data/navigation';
+import { getSearchCatalog, searchItems, highlightText } from '../data/searchData';
 import logo from '../assets/logo.png';
 import './Header.css';
 
@@ -12,11 +13,21 @@ export default function Header() {
   const [openMobileSubmenu, setOpenMobileSubmenu] = useState(null);
   const [isSearchOpen, setIsSearchOpen]     = useState(false);
   const [searchQuery, setSearchQuery]       = useState('');
-  const location     = useLocation();
-  const headerRef    = useRef(null);
-  const searchInputRef = useRef(null);
+  const [selectedIndex, setSelectedIndex]   = useState(-1);
+  const location        = useLocation();
+  const navigate        = useNavigate();
+  const headerRef       = useRef(null);
+  const searchWrapperRef = useRef(null);
+  const searchInputRef  = useRef(null);
   // Timeout ref so we can cancel mouseleave close
-  const closeTimer   = useRef(null);
+  const closeTimer      = useRef(null);
+
+  // Indexed catalog for fast searching across Topbar & Dropdown items
+  const searchCatalog = useMemo(() => getSearchCatalog(), []);
+  const searchResults = useMemo(
+    () => searchItems(searchQuery, searchCatalog),
+    [searchQuery, searchCatalog]
+  );
 
   /* ── scroll detection ─────────────────────────── */
   useEffect(() => {
@@ -30,14 +41,21 @@ export default function Header() {
     setIsMobileOpen(false);
     setOpenDropdown(null);
     setOpenMobileSubmenu(null);
+    setIsSearchOpen(false);
+    setSearchQuery('');
+    setSelectedIndex(-1);
   }, [location.pathname]);
 
-  /* ── close dropdown on outside click ─────────── */
+  /* ── close dropdown & search on outside click ── */
   useEffect(() => {
     const onPointerDown = (e) => {
       if (headerRef.current && !headerRef.current.contains(e.target)) {
         setOpenDropdown(null);
+      }
+      if (searchWrapperRef.current && !searchWrapperRef.current.contains(e.target)) {
         setIsSearchOpen(false);
+        setSearchQuery('');
+        setSelectedIndex(-1);
       }
     };
     document.addEventListener('pointerdown', onPointerDown);
@@ -85,11 +103,56 @@ export default function Header() {
     setOpenDropdown((prev) => (prev === item.path ? null : item.path));
   };
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
+  /* ── toggle search ───────────────────────────── */
+  const handleToggleSearch = () => {
+    if (!isSearchOpen) {
+      setIsSearchOpen(true);
+      setOpenDropdown(null);
+      setIsMobileOpen(false);
+    } else {
       setIsSearchOpen(false);
       setSearchQuery('');
+      setSelectedIndex(-1);
+    }
+  };
+
+  /* ── select search result and navigate ───────── */
+  const handleSelectResult = (item) => {
+    setIsSearchOpen(false);
+    setSearchQuery('');
+    setSelectedIndex(-1);
+    navigate(item.path);
+  };
+
+  /* ── handle search form submit ───────────────── */
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchResults.length > 0) {
+      const target = selectedIndex >= 0 ? searchResults[selectedIndex] : searchResults[0];
+      handleSelectResult(target);
+    }
+  };
+
+  /* ── keyboard navigation inside search ───────── */
+  const handleSearchKeyDown = (e) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (searchResults.length === 0) return;
+      setSelectedIndex((prev) => (prev + 1 >= searchResults.length ? 0 : prev + 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (searchResults.length === 0) return;
+      setSelectedIndex((prev) => (prev - 1 < 0 ? searchResults.length - 1 : prev - 1));
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (searchResults.length > 0) {
+        const target = selectedIndex >= 0 ? searchResults[selectedIndex] : searchResults[0];
+        handleSelectResult(target);
+      }
+    } else if (e.key === 'Escape') {
+      setIsSearchOpen(false);
+      setSearchQuery('');
+      setSelectedIndex(-1);
     }
   };
 
@@ -192,33 +255,144 @@ export default function Header() {
         {/* ── Actions ────────────────────────────── */}
         <div className="header__actions">
           {/* Search */}
-          <div className={`header__search-wrapper ${isSearchOpen ? 'header__search-wrapper--open' : ''}`}>
+          <div
+            ref={searchWrapperRef}
+            className={`header__search-wrapper ${isSearchOpen ? 'header__search-wrapper--open' : ''}`}
+          >
             {isSearchOpen && (
-              <form onSubmit={handleSearchSubmit} className="header__search-form">
+              <form onSubmit={handleSearchSubmit} className="header__search-form" role="search">
                 <input
                   ref={searchInputRef}
                   type="search"
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Cari..."
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setSelectedIndex(-1);
+                  }}
+                  onKeyDown={handleSearchKeyDown}
+                  placeholder="Cari menu, program..."
                   className="header__search-input"
-                  aria-label="Cari konten"
+                  aria-label="Cari menu atau konten"
+                  autoComplete="off"
                 />
               </form>
             )}
             <button
+              type="button"
               className="header__icon-btn"
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              onClick={handleToggleSearch}
               aria-label={isSearchOpen ? 'Tutup pencarian' : 'Buka pencarian'}
             >
               {isSearchOpen ? <X size={20} /> : <Search size={20} />}
             </button>
+
+            {/* Live Search Results Dropdown */}
+            {isSearchOpen && (
+              <div className="header__search-dropdown" role="region" aria-label="Hasil pencarian">
+                {searchQuery.trim().length > 0 ? (
+                  searchResults.length > 0 ? (
+                    <>
+                      <div className="header__search-dropdown-header">
+                        <span>Hasil Pencarian</span>
+                        <span>{searchResults.length} ditemukan</span>
+                      </div>
+                      <ul className="header__search-dropdown-list" role="listbox">
+                        {searchResults.map((item, index) => {
+                          const isSelected = selectedIndex === index;
+                          const IconComponent =
+                            item.type === 'topbar'
+                              ? Compass
+                              : item.type === 'dropdown'
+                              ? Layers
+                              : FileText;
+
+                          return (
+                            <li key={item.id} role="option" aria-selected={isSelected}>
+                              <button
+                                type="button"
+                                className={`header__search-result-item ${isSelected ? 'header__search-result-item--selected' : ''}`}
+                                onClick={() => handleSelectResult(item)}
+                                onMouseEnter={() => setSelectedIndex(index)}
+                              >
+                                <div className={`header__search-result-icon header__search-result-icon--${item.type}`}>
+                                  <IconComponent size={16} />
+                                </div>
+                                <div className="header__search-result-content">
+                                  <div className="header__search-result-title">
+                                    {highlightText(item.title, searchQuery)}
+                                  </div>
+                                  <div className="header__search-result-meta">
+                                    <span className="header__search-result-badge">
+                                      {item.category}
+                                    </span>
+                                  </div>
+                                </div>
+                                <ArrowRight size={14} className="header__search-result-arrow" />
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      <div className="header__search-dropdown-footer">
+                        <span>Tekan <strong>Enter</strong> untuk buka</span>
+                        <span><strong>↑↓</strong> navigasi</span>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="header__search-empty">
+                      <div className="header__search-empty-icon">
+                        <Search size={26} />
+                      </div>
+                      <div className="header__search-empty-title">Tidak ada hasil</div>
+                      <div className="header__search-empty-desc">
+                        Tidak ditemukan judul menu atau program untuk "{searchQuery}".
+                      </div>
+                    </div>
+                  )
+                ) : (
+                  <div className="header__search-suggestions">
+                    <div className="header__search-suggestions-label">Menu & Program Populer</div>
+                    <div className="header__search-tags">
+                      {[
+                        'WPS Program',
+                        'Restorasi Mangrove',
+                        'SDGs Program',
+                        'Konservasi',
+                        'Buku Ber-ISBN',
+                        'Artikel & Riset',
+                        'Intern & Relawan',
+                        'Tentang Kami',
+                        'Kontak',
+                      ].map((tag) => (
+                        <button
+                          key={tag}
+                          type="button"
+                          className="header__search-tag-btn"
+                          onClick={() => {
+                            setSearchQuery(tag);
+                            setSelectedIndex(0);
+                            searchInputRef.current?.focus();
+                          }}
+                        >
+                          {tag}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Mobile Toggle */}
           <button
             className={`header__mobile-toggle ${isMobileOpen ? 'header__mobile-toggle--active' : ''}`}
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            onClick={() => {
+              setIsMobileOpen(!isMobileOpen);
+              setIsSearchOpen(false);
+              setSearchQuery('');
+              setSelectedIndex(-1);
+            }}
             aria-label={isMobileOpen ? 'Tutup menu' : 'Buka menu'}
             aria-expanded={isMobileOpen}
           >

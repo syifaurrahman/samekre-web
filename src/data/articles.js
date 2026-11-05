@@ -6,6 +6,7 @@ import adaptasiIklimImg from '../assets/adaptasi_iklim.jpg';
 import aksiRestorasiImg from '../assets/aksi_restorasi.png';
 import telkomImg from '../assets/telkom.png';
 import treImg from '../assets/tre.jpeg';
+import panglimaLaotImg from '../assets/panglima_laot.png';
 
 // Real articles crawled directly from naturalaceh.org
 export const articles = [
@@ -283,7 +284,7 @@ export const articles = [
       "The requested URL was not found on this server.",
       "Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request."
     ],
-    "image": adaptasiIklimImg,
+    "image": panglimaLaotImg,
     "category": "Komunitas",
     "date": "2024-10-20",
     "author": "Tim Riset & Komunikasi Natural Aceh",

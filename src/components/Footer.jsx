@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
-import logo from '../assets/logo.png';
+import footerLogo from '../assets/footer_logo.png';
 import './Footer.css';
 
 const quickLinks = [
@@ -60,7 +60,7 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="footer__brand">
           <Link to="/" className="footer__logo">
-            <img src={logo} alt="Natural Aceh" width="48" height="48" />
+            <img src={footerLogo} alt="Natural Aceh" width="48" height="48" />
             <div className="footer__logo-text">
               <span className="footer__logo-name">NATURAL</span>
               <span className="footer__logo-sub">ACEH</span>

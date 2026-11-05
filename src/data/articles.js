@@ -1,5 +1,6 @@
 import alueNagaImg from '../assets/alue-naga.jpg';
 import pemberdayaanImg from '../assets/pemberdayaan.png';
+import bdyImg from '../assets/bdy.png';
 import anoaImg from '../assets/anoa.png';
 import adaptasiIklimImg from '../assets/adaptasi_iklim.jpg';
 import aksiRestorasiImg from '../assets/aksi_restorasi.png';
@@ -83,7 +84,7 @@ export const articles = [
       "The requested URL was not found on this server.",
       "Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request."
     ],
-    "image": pemberdayaanImg,
+    "image": bdyImg,
     "category": "Pemberdayaan Perempuan",
     "date": "2025-02-09",
     "author": "Tim Riset & Komunikasi Natural Aceh",
